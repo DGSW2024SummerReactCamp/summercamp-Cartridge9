@@ -1,0 +1,13 @@
+배운 내용 정리
+npx 란 : Node Package eXecute, 최신 버전 패키지를 "실행"시켜주는 도구
+npm 란 : node package manager, Nodejs의 패키지를 "관리"하게 해주는 도구 ( Python의 pip같은.. )
+
+react 시작하는 법!!
+1. npx create-react-app [프로젝트명]
+2. cd [프로젝트명]
+3. npm start
+-> 페이지 실행됨
+
+화살표 함수와 일반 함수의 차이점?
+1. this는 화살표함수에서는 바로 상위 스코프의 this를 가져옴, 그러나 일반함수에서는 자신이 종속된 객체의 this를 가져옴
+2. arg를 받아올 수 없음, 화살표 함수에서는 arg가 정의되지 않음
