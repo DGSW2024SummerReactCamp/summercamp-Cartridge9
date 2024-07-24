@@ -1,6 +1,6 @@
 import './App.css';
 
-const Viewer = ({cnt}) => { // cnt 받아오기
+const Viewer = ({cnt}) => { // cnt ( count ) 받아오기
     return (
         <div class='container'>
            <div>현재 카운트 :</div>
