@@ -1,0 +1,50 @@
+.App {
+  max-width: fit-content;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border: 1px solid;
+}
+
+.TodoEditor{
+  margin: 10px 0px;
+}
+
+.TodoEditor input{
+  flex: 1;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: 0.5px 0.4px 2px;
+  border-radius: 5px;
+  height: 40px;
+  width: 300px;
+  padding: 5px;
+  margin: 10px 0px;
+}
+.TodoEditor button{
+  height: 40px;
+  width: 45px;
+  margin-left: 5px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.TodoList{
+  margin: 10px 0px;
+}
+
+h2{
+  color: blue;
+  margin: 10px;
+}
+
+h3{
+  margin: 0px;
+}
