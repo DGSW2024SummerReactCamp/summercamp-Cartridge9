@@ -4,7 +4,7 @@ import '../App.css'
 const Time = () => {
   return (
     <div className="Time">
-      <h3>현재 시간은?</h3>
+      <h1>현재 시간은?</h1>
       <h2>{new Date().toDateString()}</h2>
     </div>
   )
