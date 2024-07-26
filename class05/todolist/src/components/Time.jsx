@@ -1,6 +1,7 @@
 import React from 'react'
 import '../App.css'
 
+
 const Time = () => {
   return (
     <div className="Time">
@@ -10,4 +11,4 @@ const Time = () => {
   )
 }
 
-export default Time;
+export default React.memo(Time);

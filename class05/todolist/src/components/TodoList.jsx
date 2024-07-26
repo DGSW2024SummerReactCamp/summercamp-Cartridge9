@@ -1,7 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, } from 'react'
 import '../App.css'
+import { useMemo } from 'react'
+import { TodoStateContext, TodoDispatchContext } from '../App';
 
-const TodoList = ({list,setlist}) => {
+const TodoList = () => {
+  
+  const { DoList } = useContext(TodoStateContext)
+  const { deleteTodo, updateTodo } = useContext(TodoDispatchContext)
+
   const [search, setSearch] = useState('')
   
   
@@ -11,37 +17,30 @@ const TodoList = ({list,setlist}) => {
 
   const getSearchResult = () => {
     return search === ""
-    ? list
-    : list.filter((it)=>it.text.toLowerCase().includes(search.toLowerCase()));
-  }
-
-  const deleteTodo = (itemId) => {
-    setlist({type:"DELETE",data:itemId});
-  }
-
-  const updateTodo = (itemId) => {
-    setlist({type:"UPDATE", data:itemId})
+    ? DoList
+    : DoList.filter((it)=>it.text.toLowerCase().includes(search.toLowerCase()));
   }
 
 
-  const analyzeApp = () =>{
-    const totalCount = list.length
-    const doneCount = list.filter((it)=>it.checked === true).length
-    const yetCount = list.filter((it)=>it.checked !== true).length
+  const analyzeApp = useMemo(() =>{
+    const totalCount = DoList.length
+    const doneCount = DoList.filter((it)=>it.checked === true).length
+    const yetCount = DoList.filter((it)=>it.checked !== true).length
     return(
       [totalCount, doneCount, yetCount]
     )
-  }
+  }, [DoList])
 
-  const analyze = analyzeApp();
+  // const {totalCount, doneCount, yetCount} = analyzeApp;
+  // console.log(analyzeApp)
 
   return (
     <div className="Todolist">
       <h1>Todo List</h1>
-      <div>
-        <div>총개수 : {analyze[0]}</div>
-        <div>다한일 : {analyze[1]}</div>
-        <div>덜한일 : {analyze[2]}</div>
+      <div className='analyze'>
+        <div>총개수 : {analyzeApp[0]}</div>
+        <div>다한일 : {analyzeApp[1]}</div>
+        <div>덜한일 : {analyzeApp[2]}</div>
       </div>
       <input type="search" className='Todosearch' placeholder='검색' onChange={onChangeSearch} />
       {
